@@ -71,8 +71,9 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  touch-action: manipulation;
-  -ms-touch-action: manipulation;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 body {
@@ -82,14 +83,16 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   min-height: 100dvh;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   transition: background 0.4s var(--ease), color 0.4s var(--ease);
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
-  touch-action: manipulation;
-  -ms-touch-action: manipulation;
+  touch-action: pan-y pinch-zoom;
+  -ms-touch-action: pan-y pinch-zoom;
   overscroll-behavior-x: none;
 }
 
@@ -107,10 +110,11 @@ button {
 /* ---------- Backdrop ---------- */
 .backdrop {
   position: fixed;
-  inset: -20% -10% 0;
+  inset: 0;
   z-index: -1;
   background: var(--backdrop);
-  animation: backdropDrift 26s ease-in-out infinite alternate;
+  overflow: hidden;
+  pointer-events: none;
 }
 
 [data-theme="dark"] .backdrop::after {
@@ -124,6 +128,13 @@ button {
 @keyframes backdropDrift {
   0%   { transform: translate3d(0, 0, 0) scale(1); }
   100% { transform: translate3d(0, -2.5%, 0) scale(1.05); }
+}
+
+@media (min-width: 769px) {
+  [data-theme="dark"] .backdrop {
+    inset: -20% -10% 0;
+    animation: backdropDrift 26s ease-in-out infinite alternate;
+  }
 }
 
 /* Aurora — light mode only */
@@ -169,6 +180,9 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
   padding: max(16px, env(safe-area-inset-top)) clamp(20px, 5vw, 48px) 16px;
   padding-left: max(clamp(20px, 5vw, 48px), env(safe-area-inset-left));
   padding-right: max(clamp(20px, 5vw, 48px), env(safe-area-inset-right));
@@ -218,7 +232,13 @@ button {
 [data-theme="light"] .icon-moon { display: block; }
 
 /* ---------- Layout ---------- */
-.container { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); }
+.container {
+  max-width: var(--maxw);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 48px);
+  overflow-x: clip;
+}
 
 /* ---------- Hero ---------- */
 .hero { text-align: center; padding: clamp(48px, 9vw, 104px) 0 clamp(36px, 6vw, 60px); }
@@ -295,6 +315,11 @@ button {
   justify-content: space-between;
   gap: 16px;
   margin-bottom: 32px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  overscroll-behavior-x: none;
 }
 .search {
   display: flex; align-items: center; gap: 10px;
@@ -322,7 +347,13 @@ button {
 }
 .search input::placeholder { color: var(--text-dim); }
 
-.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+  max-width: 100%;
+}
 .filter-pill {
   font-family: var(--font-body);
   font-size: 13.5px; font-weight: 500;
@@ -543,9 +574,10 @@ button {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
-  [data-theme="dark"] .backdrop {
+  .backdrop {
     inset: 0;
     animation: none;
+    transform: none;
   }
 }
 
@@ -584,12 +616,17 @@ button {
     display: flex;
     flex-wrap: nowrap;
     gap: 8px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     overflow-x: auto;
+    overflow-y: hidden;
     overscroll-behavior-x: contain;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    padding: 2px 2px 8px;
-    margin: 0 -2px;
+    touch-action: pan-x;
+    padding: 2px 0 8px;
+    margin: 0;
   }
   .filters::-webkit-scrollbar { display: none; }
   .filter-pill {
