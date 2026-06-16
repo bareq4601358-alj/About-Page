@@ -14,6 +14,7 @@ const ICONS = {
   flame: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s4 4 4 8a4 4 0 0 1-8 0c0-1.5.5-2.5 1-3.5C8 8 6 10 6 14a6 6 0 0 0 12 0c0-5-6-12-6-12z"/></svg>',
   check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>',
   snake: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6a3 3 0 0 1 3 3v0a3 3 0 0 1-3 3H7a3 3 0 0 0-3 3v0a3 3 0 0 0 3 3h7a3 3 0 0 0 3-3V7"/><circle cx="19" cy="5" r="1.4" fill="currentColor"/></svg>',
+  paw: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="6" cy="8" r="2"/><circle cx="16" cy="8" r="2"/><circle cx="8" cy="13" r="2"/><circle cx="14" cy="13" r="2"/><path d="M12 22c-4 0-7-2-7-5 0-2 2-3 7-3s7 1 7 3c0 3-3 5-7 5z"/></svg>',
 };
 
 // Project data — solid accent (dark) + gradient (light)
@@ -99,6 +100,15 @@ const PROJECTS = [
     icon: "flame",
     color: "#f97316",
     grad: "linear-gradient(135deg, #ff512f 0%, #f09819 100%)",
+  },
+  {
+    title: "Wild Atlas — Animal Almanac",
+    category: "Education",
+    desc: "An interactive almanac of animal species — flip cards to explore facts and photos from the wild.",
+    url: "https://the-animal-almanac.vercel.app",
+    icon: "paw",
+    color: "#65a30d",
+    grad: "linear-gradient(135deg, #56ab2f 0%, #a8e063 100%)",
   },
 ];
 

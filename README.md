@@ -14,15 +14,16 @@ A premium, responsive landing page that organizes all of my websites, apps, game
 
 | Project | Category | Link |
 | --- | --- | --- |
-| Photography | Creative | https://bareqaljuboori.vercel.app |
 | Blog | Writing | https://bareqblog.vercel.app |
-| VR Eye Tracking Program | Research | https://vr-vision-program.vercel.app |
-| Eye Tracking Exercises | Health | https://vision-training-zeta.vercel.app |
+| Photography | Creative | https://bareqaljuboori.vercel.app |
 | Spanish Flashcards | Education | https://spanish-flashcards-sigma.vercel.app |
+| Eye Tracking Exercises | Health | https://vision-training-zeta.vercel.app |
+| VR Eye Tracking Program | Research | https://vr-vision-program.vercel.app |
 | Neon Pong | Games | https://neonponggame.vercel.app |
-| Consistency Streak Tracker | Productivity | https://consistency-streak-website.vercel.app |
-| To-Do List & Planner | Productivity | https://to-do-list-planner.vercel.app |
 | The Arabian Cobra (Snake) | Games | https://thearabiancobra.vercel.app |
+| To-Do List & Planner | Productivity | https://to-do-list-planner.vercel.app |
+| Consistency Streak Tracker | Productivity | https://consistency-streak-website.vercel.app |
+| Wild Atlas — Animal Almanac | Education | https://the-animal-almanac.vercel.app |
 
 ## 🚀 Deploying to Vercel
 
