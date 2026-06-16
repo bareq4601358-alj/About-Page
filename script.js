@@ -219,3 +219,20 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 /* ---------- Init ---------- */
 render();
+
+/* Prevent pinch/double-tap zoom on iOS Safari */
+document.addEventListener(
+  "gesturestart",
+  (e) => e.preventDefault(),
+  { passive: false }
+);
+document.addEventListener(
+  "gesturechange",
+  (e) => e.preventDefault(),
+  { passive: false }
+);
+document.addEventListener(
+  "gestureend",
+  (e) => e.preventDefault(),
+  { passive: false }
+);
