@@ -209,8 +209,8 @@ function animateCount(el) {
 document.querySelectorAll(".stat-num[data-count]").forEach(animateCount);
 
 /* ---------- Nav border on scroll ---------- */
-const nav = document.querySelector(".nav");
-const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 8);
+const heroTop = document.querySelector(".hero-top");
+const onScroll = () => heroTop?.classList.toggle("scrolled", window.scrollY > 8);
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
 
