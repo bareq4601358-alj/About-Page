@@ -16,39 +16,25 @@ const ICONS = {
   snake: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6a3 3 0 0 1 3 3v0a3 3 0 0 1-3 3H7a3 3 0 0 0-3 3v0a3 3 0 0 0 3 3h7a3 3 0 0 0 3-3V7"/><circle cx="19" cy="5" r="1.4" fill="currentColor"/></svg>',
 };
 
-// Project data — gradients give each card its own identity
+// Project data — solid accent (dark) + gradient (light)
 const PROJECTS = [
-  {
-    title: "Photography",
-    category: "Creative",
-    desc: "A visual portfolio showcasing my photography work and captured moments.",
-    url: "https://bareqaljuboori.vercel.app",
-    icon: "camera",
-    grad: "linear-gradient(135deg, #f7971e 0%, #ffd200 100%)",
-  },
   {
     title: "Blog",
     category: "Writing",
     desc: "Thoughts, stories, and writing on the things I find interesting.",
     url: "https://bareqblog.vercel.app",
     icon: "pen",
+    color: "#10b981",
     grad: "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)",
   },
   {
-    title: "VR Eye Tracking Program",
-    category: "Research",
-    desc: "A virtual reality program built around eye-tracking technology.",
-    url: "https://vr-vision-program.vercel.app/",
-    icon: "vr",
-    grad: "linear-gradient(135deg, #8b7bff 0%, #38d6ff 100%)",
-  },
-  {
-    title: "Eye Tracking Exercises",
-    category: "Health",
-    desc: "Guided vision-training exercises to strengthen and track eye movement.",
-    url: "https://vision-training-zeta.vercel.app/",
-    icon: "eye",
-    grad: "linear-gradient(135deg, #00c6ff 0%, #0072ff 100%)",
+    title: "Photography",
+    category: "Creative",
+    desc: "A visual portfolio showcasing my photography work and captured moments.",
+    url: "https://bareqaljuboori.vercel.app",
+    icon: "camera",
+    color: "#f59e0b",
+    grad: "linear-gradient(135deg, #f7971e 0%, #ffd200 100%)",
   },
   {
     title: "Spanish Flashcards",
@@ -56,7 +42,27 @@ const PROJECTS = [
     desc: "An interactive flashcard app for learning and practicing Spanish.",
     url: "https://spanish-flashcards-sigma.vercel.app/",
     icon: "cards",
+    color: "#ec4899",
     grad: "linear-gradient(135deg, #ee0979 0%, #ff6a00 100%)",
+  },
+  {
+    title: "Eye Tracking Exercises",
+    category: "Health",
+    desc: "Guided vision-training exercises to strengthen and track eye movement.",
+    url: "https://vision-training-zeta.vercel.app/",
+    icon: "eye",
+    color: "#0ea5e9",
+    grad: "linear-gradient(135deg, #00c6ff 0%, #0072ff 100%)",
+  },
+  {
+    title: "VR Eye Tracking Program",
+    category: "Research",
+    desc: "A virtual reality program built around eye-tracking technology.",
+    url: "https://vr-vision-program.vercel.app/",
+    icon: "vr",
+    badge: "VR",
+    color: "#7c6cff",
+    grad: "linear-gradient(135deg, #8b7bff 0%, #38d6ff 100%)",
   },
   {
     title: "Neon Pong",
@@ -64,23 +70,8 @@ const PROJECTS = [
     desc: "A glowing, neon-styled take on the classic Pong arcade game.",
     url: "https://neonponggame.vercel.app",
     icon: "gamepad",
+    color: "#f43f5e",
     grad: "linear-gradient(135deg, #f857a6 0%, #ff5858 100%)",
-  },
-  {
-    title: "Consistency Streak Tracker",
-    category: "Productivity",
-    desc: "Track your daily habits and keep your streaks alive, day after day.",
-    url: "https://consistency-streak-website.vercel.app",
-    icon: "flame",
-    grad: "linear-gradient(135deg, #ff512f 0%, #f09819 100%)",
-  },
-  {
-    title: "To-Do List & Planner",
-    category: "Productivity",
-    desc: "Organize tasks and plan your day with a clean, focused planner.",
-    url: "https://to-do-list-planner.vercel.app/",
-    icon: "check",
-    grad: "linear-gradient(135deg, #7f00ff 0%, #e100ff 100%)",
   },
   {
     title: "The Arabian Cobra — Snake",
@@ -88,7 +79,26 @@ const PROJECTS = [
     desc: "A sleek modern rebuild of the timeless Snake game.",
     url: "https://thearabiancobra.vercel.app",
     icon: "snake",
+    color: "#14b8a6",
     grad: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
+  },
+  {
+    title: "To-Do List & Planner",
+    category: "Productivity",
+    desc: "Organize tasks and plan your day with a clean, focused planner.",
+    url: "https://to-do-list-planner.vercel.app/",
+    icon: "check",
+    color: "#8b5cf6",
+    grad: "linear-gradient(135deg, #7f00ff 0%, #e100ff 100%)",
+  },
+  {
+    title: "Consistency Streak Tracker",
+    category: "Productivity",
+    desc: "Track your daily habits and keep your streaks alive, day after day.",
+    url: "https://consistency-streak-website.vercel.app",
+    icon: "flame",
+    color: "#f97316",
+    grad: "linear-gradient(135deg, #ff512f 0%, #f09819 100%)",
   },
 ];
 
@@ -137,12 +147,17 @@ function render() {
   visible.forEach((p, i) => {
     const card = document.createElement("article");
     card.className = "card";
+    card.style.setProperty("--card-accent", p.color);
+    card.style.setProperty("--card-soft", `color-mix(in srgb, ${p.color} 14%, transparent)`);
     card.style.setProperty("--card-grad", p.grad);
     card.style.animationDelay = `${i * 60}ms`;
 
     card.innerHTML = `
       <div class="card-top">
-        <div class="card-icon">${ICONS[p.icon] || ""}</div>
+        <div class="card-icon-wrap">
+          <div class="card-icon">${ICONS[p.icon] || ""}</div>
+          ${p.badge ? `<span class="card-badge">${p.badge}</span>` : ""}
+        </div>
         <span class="card-tag">${p.category}</span>
       </div>
       <h3 class="card-title">${p.title}</h3>
@@ -172,6 +187,10 @@ themeToggle.addEventListener("click", () => {
   const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
   root.setAttribute("data-theme", next);
   localStorage.setItem("ba-theme", next);
+  document.querySelector('meta[name="theme-color"]')?.setAttribute(
+    "content",
+    next === "dark" ? "#0b0d17" : "#f3f4fb"
+  );
 });
 
 /* ---------- Animated counters ---------- */
@@ -188,6 +207,12 @@ function animateCount(el) {
   tick();
 }
 document.querySelectorAll(".stat-num[data-count]").forEach(animateCount);
+
+/* ---------- Nav border on scroll ---------- */
+const nav = document.querySelector(".nav");
+const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 8);
+window.addEventListener("scroll", onScroll, { passive: true });
+onScroll();
 
 /* ---------- Footer year ---------- */
 document.getElementById("year").textContent = new Date().getFullYear();
