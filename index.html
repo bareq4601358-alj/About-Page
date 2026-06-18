@@ -1,86 +1,455 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  <meta name="theme-color" content="#0b0d17" />
-  <title>Bareq Aljuboori — Projects</title>
-  <meta name="description" content="A curated collection of websites, apps, and experiments built by Bareq Aljuboori." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Bareq Aljuboori — Creator, Developer & Photographer</title>
+  <meta name="description" content="Bareq Aljuboori — artist, developer, photographer and writer. USC alum. Builder of a VR vision-training app, web games, and creative tools. Trilingual in English, Arabic and Spanish." />
+  <meta name="author" content="Bareq Aljuboori" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Bareq Aljuboori — Projects" />
-  <meta property="og:description" content="A curated collection of websites, apps, and experiments built by Bareq Aljuboori." />
-  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Bareq Aljuboori — Creator, Developer & Photographer" />
+  <meta property="og:description" content="Artist, developer, photographer and writer. Builder of a VR vision-training app, web games, and creative tools." />
+  <meta property="og:type" content="profile" />
+  <meta property="og:image" content="assets/bareq.png" />
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🟣</text></svg>" />
+  <link rel="icon" href="assets/bareq.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Backdrop: gradient (dark) + aurora blobs (light) -->
-  <div class="backdrop" aria-hidden="true">
-    <div class="aurora">
-      <span class="blob blob-1"></span>
-      <span class="blob blob-2"></span>
-      <span class="blob blob-3"></span>
-      <div class="grain"></div>
-    </div>
-  </div>
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+  <!-- Decorative background -->
+  <div class="bg-grain" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--one" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--two" aria-hidden="true"></div>
 
-  <header class="nav">
-    <a href="#top" class="brand">
-      <span class="brand-mark">BA</span>
-      <span class="brand-name">Bareq Aljuboori</span>
-    </a>
-    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle color theme">
-      <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-      <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
+  <!-- Navbar -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#top" class="nav__brand">
+        <span class="nav__brand-mark">BA</span>
+        <span class="nav__brand-name">Bareq Aljuboori</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact" class="nav__cta">Contact</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </header>
 
-  <main id="top" class="container">
+  <main id="top">
     <!-- Hero -->
     <section class="hero">
-      <p class="eyebrow">Portfolio Hub</p>
-      <h1 class="hero-title">
-        Everything by <span class="grad-text">Bareq&nbsp;Aljuboori</span>
-      </h1>
-      <p class="hero-sub">
-        A single home for all my websites, apps, games, and experiments.
-        Pick any project below and dive right in.
-      </p>
+      <div class="hero__inner">
+        <div class="hero__photo-wrap reveal">
+          <div class="hero__photo-ring"></div>
+          <div class="hero__photo-clip">
+            <img class="hero__photo" src="assets/bareq.png" alt="Portrait of Bareq Aljuboori" />
+          </div>
+        </div>
 
-      <div class="hero-stats">
-        <div class="stat"><span class="stat-num" data-count="10">10</span><span class="stat-label">Projects</span></div>
-        <div class="stat-divider" aria-hidden="true"></div>
-        <div class="stat"><span class="stat-num" data-count="7">7</span><span class="stat-label">Categories</span></div>
-        <div class="stat-divider" aria-hidden="true"></div>
-        <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Live</span></div>
+        <div class="hero__intro">
+          <p class="hero__eyebrow reveal">Creator · Developer · Photographer · Writer · Painter</p>
+          <h1 class="hero__name reveal">Bareq Aljuboori</h1>
+          <p class="hero__tagline reveal">
+            I build things at the intersection of <em>technology</em>, <em>art</em>, and
+            <em>discipline</em> — from a VR vision-training app to web games, creative
+            tools, and a body of photography and writing.
+          </p>
+
+          <ul class="hero__meta reveal">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+              Los Angeles, CA
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3Zm0 13.72L4.21 12.5 12 8.28l7.79 4.22L12 16.72ZM5 14.18v3.32C5 19.43 8.13 21 12 21s7-1.57 7-3.5v-3.32l-7 3.82-7-3.82Z"/></svg>
+              University of Southern California
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm6.93 6h-2.95a15.6 15.6 0 0 0-1.38-3.56A8 8 0 0 1 18.93 8ZM12 4a13.9 13.9 0 0 1 1.91 4h-3.82A13.9 13.9 0 0 1 12 4ZM4.26 14a7.8 7.8 0 0 1 0-4h3.38a16.6 16.6 0 0 0 0 4Zm.81 2h2.95a15.6 15.6 0 0 0 1.38 3.56A8 8 0 0 1 5.07 16Zm2.95-8H5.07a8 8 0 0 1 4.33-3.56A15.6 15.6 0 0 0 8.02 8ZM12 20a13.9 13.9 0 0 1-1.91-4h3.82A13.9 13.9 0 0 1 12 20Zm2.36-6H9.64a14.7 14.7 0 0 1 0-4h4.72a14.7 14.7 0 0 1 0 4Zm.26 5.56A15.6 15.6 0 0 0 15.98 16h2.95a8 8 0 0 1-4.33 3.56ZM16.36 14a16.6 16.6 0 0 0 0-4h3.38a7.8 7.8 0 0 1 0 4Z"/></svg>
+              English · العربية · Español
+            </li>
+          </ul>
+
+          <div class="hero__actions reveal">
+            <a class="btn btn--primary" href="#work">View my work</a>
+          </div>
+
+          <div class="hero__socials reveal" aria-label="Links">
+            <a href="https://bareqblog.vercel.app/" target="_blank" rel="noopener">Blog</a>
+            <span>•</span>
+            <a href="#work">Websites</a>
+            <span>•</span>
+            <a href="https://www.meta.com/experiences/vr-vision-tracking/1060963813776596/" target="_blank" rel="noopener">VR App</a>
+            <span>•</span>
+            <a href="https://www.youtube.com/@BareqAljuboori" target="_blank" rel="noopener">Youtube</a>
+          </div>
+        </div>
+      </div>
+
+      <ul class="stats reveal">
+        <li><span class="stats__num">10</span><span class="stats__label">Websites built</span></li>
+        <li><span class="stats__num">3</span><span class="stats__label">Languages</span></li>
+        <li><span class="stats__num">VR</span><span class="stats__label">App on Meta Horizon</span></li>
+        <li><span class="stats__num">∞</span><span class="stats__label">Growth</span></li>
+      </ul>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="section__head reveal">
+        <span class="section__kicker">01 — About</span>
+        <h2 class="section__title">A creator driven by discipline and growth</h2>
+      </div>
+      <div class="about">
+        <div class="about__body reveal">
+          <p>
+            I'm a creator driven by curiosity, discipline, and the constant pursuit of
+            growth. My work is rooted in creativity, technology, movement, and the ongoing
+            process of self-improvement.
+          </p>
+          <p>
+            I'm an artist, painter, boxer, programmer, photographer, writer, and YouTuber —
+            but more than anything, I'm someone who believes in learning deeply and building
+            consistently. Whether I'm creating visual art, training martial arts, developing
+            websites, studying languages, or documenting my journey through video, the goal
+            is always the same: to become better, sharper, and more capable every day.
+          </p>
+          <p>
+            My work isn't about perfection — it's about progress, curiosity, and the courage
+            to keep evolving.
+          </p>
+        </div>
+        <aside class="about__card reveal">
+          <h3>What I do</h3>
+          <ul class="chips">
+            <li>Software Development</li>
+            <li>VR / XR</li>
+            <li>Photography</li>
+            <li>Writing</li>
+            <li>Visual Art &amp; Painting</li>
+            <li>Boxing &amp; Martial Arts</li>
+            <li>Language Learning</li>
+            <li>Video / YouTube</li>
+          </ul>
+        </aside>
       </div>
     </section>
 
-    <!-- Controls -->
-    <section class="controls" aria-label="Filter projects">
-      <div class="search">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-        <input id="search" type="search" placeholder="Search projects…" autocomplete="off" aria-label="Search projects" />
+    <!-- Work / Projects -->
+    <section class="section" id="work">
+      <div class="section__head reveal">
+        <span class="section__kicker">02 — Selected Work</span>
+        <h2 class="section__title">Things I've built</h2>
+        <p class="section__sub">Apps, games, websites, and creative tools</p>
       </div>
-      <div id="filters" class="filters" role="tablist" aria-label="Categories"></div>
+
+      <!-- Featured -->
+      <a class="project project--featured reveal" href="https://www.meta.com/experiences/vr-vision-tracking/1060963813776596/" target="_blank" rel="noopener">
+        <div class="project__featured-tag">★ Featured · Meta Horizon Store</div>
+        <div class="project__featured-grid">
+          <div class="project__featured-text">
+            <h3>VR Vision Training</h3>
+            <p>
+              A virtual-reality application that trains eye tracking, focus, and visual
+              coordination through guided routines — with adjustable speed, range, contrast,
+              and single-eye modes. Published on the Meta Quest Store for Meta Horizon.
+            </p>
+            <div class="project__tags">
+              <span>VR / XR</span><span>Meta Quest</span><span>Unity</span><span>Health &amp; Training</span>
+            </div>
+            <span class="project__link">View on Meta Store ↗</span>
+          </div>
+          <div class="project__featured-visual">
+            <div class="vr-ring vr-ring--1" aria-hidden="true"></div>
+            <div class="vr-ring vr-ring--2" aria-hidden="true"></div>
+            <img class="vr-icon" src="assets/vr-vision-icon.png" alt="VR Vision Training app icon" />
+          </div>
+        </div>
+      </a>
+
+      <!-- Grid -->
+      <div class="projects-grid">
+        <a class="project reveal" href="https://bareqblog.vercel.app/" target="_blank" rel="noopener">
+          <div class="project__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
+          <h3>Blog</h3>
+          <p>Essays, diaries, and notes on learning, discipline, and growth — a space for ideas worth sitting with.</p>
+          <div class="project__tags"><span>Writing</span><span>Personal</span></div>
+          <span class="project__link">Read ↗</span>
+        </a>
+
+        <a class="project reveal" href="https://bareqaljuboori.vercel.app/" target="_blank" rel="noopener">
+          <div class="project__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+          <h3>Photography</h3>
+          <p>Portraits, personal, and general photography — a curated gallery and print store of my visual work.</p>
+          <div class="project__tags"><span>Photography</span><span>Creative</span></div>
+          <span class="project__link">View ↗</span>
+        </a>
+
+        <a class="project reveal" href="https://spanish-flashcards-sigma.vercel.app/" target="_blank" rel="noopener">
+          <div class="project__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="13" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-2"/></svg></div>
+          <h3>English · Spanish Flashcards</h3>
+          <p>An interactive language-learning tool with topics, matching, sentences, and a savable deck — built from my own trilingual journey.</p>
+          <div class="project__tags"><span>Education</span><span>Spanish</span></div>
+          <span class="project__link">Open ↗</span>
+        </a>
+
+        <a class="project reveal" href="https://vision-training-zeta.vercel.app/" target="_blank" rel="noopener">
+          <div class="project__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h3>Eye Tracking Exercises</h3>
+          <p>Guided vision-training exercises to strengthen and track eye movement — the web companion to my VR app.</p>
+          <div class="project__tags"><span>Health</span><span>Training</span></div>
+          <span class="project__link">Open ↗</span>
+        </a>
+
+        <a class="project reveal" href="https://neonponggame.vercel.app/" target="_blank" rel="noopener">
+          <div class="project__icon project__icon--img"><img src="assets/neon-pong-icon-512.png" alt="Neon Pong app icon" /></div>
+          <h3>Neon Pong</h3>
+          <p>A glowing, premium-feel browser take on classic Pong with difficulty modes, match lengths, and an escalating CPU.</p>
+          <div class="project__tags"><span>Game</span><span>Canvas</span></div>
+          <span class="project__link">Play ↗</span>
+        </a>
+
+        <a class="project reveal" href="https://thearabiancobra.vercel.app/" target="_blank" rel="noopener">
+          <div class="project__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6a3 3 0 0 1 3 3v0a3 3 0 0 1-3 3H7a3 3 0 0 0-3 3v0a3 3 0 0 0 3 3h7a3 3 0 0 0 3-3V7"/><circle cx="19" cy="5" r="1.4" fill="currentColor"/></svg></div>
+          <h3>The Arabian Cobra</h3>
+          <p>A sleek, modern rebuild of the timeless Snake game with keyboard and swipe controls and a best-score tracker.</p>
+          <div class="project__tags"><span>Game</span><span>Mobile-friendly</span></div>
+          <span class="project__link">Play ↗</span>
+        </a>
+
+        <a class="project reveal" href="https://to-do-list-planner.vercel.app/" target="_blank" rel="noopener">
+          <div class="project__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <h3>To-Do List &amp; Planner</h3>
+          <p>Organize tasks and plan your day with a clean, focused planner built for momentum.</p>
+          <div class="project__tags"><span>Productivity</span><span>Tool</span></div>
+          <span class="project__link">Open ↗</span>
+        </a>
+
+        <a class="project reveal" href="https://consistency-streak-website.vercel.app/" target="_blank" rel="noopener">
+          <div class="project__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s4 4 4 8a4 4 0 0 1-8 0c0-1.5.5-2.5 1-3.5C8 8 6 10 6 14a6 6 0 0 0 12 0c0-5-6-12-6-12z"/></svg></div>
+          <h3>Consistency Streak Tracker</h3>
+          <p>Track daily habits and keep your streaks alive, day after day — discipline made visible.</p>
+          <div class="project__tags"><span>Productivity</span><span>Habits</span></div>
+          <span class="project__link">Open ↗</span>
+        </a>
+
+        <a class="project reveal" href="https://the-animal-almanac.vercel.app/" target="_blank" rel="noopener">
+          <div class="project__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="6" cy="8" r="2"/><circle cx="16" cy="8" r="2"/><circle cx="8" cy="13" r="2"/><circle cx="14" cy="13" r="2"/><path d="M12 22c-4 0-7-2-7-5 0-2 2-3 7-3s7 1 7 3c0 3-3 5-7 5z"/></svg></div>
+          <h3>Wild Atlas — Animal Almanac</h3>
+          <p>An interactive almanac of animal species — flip cards to explore facts and photos from the wild.</p>
+          <div class="project__tags"><span>Education</span><span>Interactive</span></div>
+          <span class="project__link">Explore ↗</span>
+        </a>
+      </div>
     </section>
 
-    <!-- Project grid -->
-    <section id="grid" class="grid" aria-label="Projects"></section>
 
-    <p id="empty" class="empty" hidden>No projects match your search.</p>
+
+    <!-- Experience -->
+    <section class="section" id="experience">
+      <div class="section__head reveal">
+        <span class="section__kicker">03 — Experience</span>
+        <h2 class="section__title">What I've been building</h2>
+      </div>
+      <div class="timeline">
+        <article class="timeline__item reveal">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__top">
+              <h3>VR Developer — Vision Training App</h3>
+              <span class="timeline__date">2025 — Present</span>
+            </div>
+            <p class="timeline__org">Independent · Published on the Meta Horizon Store</p>
+            <p>
+              Designed and developed a virtual-reality vision-training application that helps
+              users improve eye tracking, focus, and visual coordination through guided
+              routines. Built configurable speed, size, path range, color contrast, and
+              single-eye training modes, with native Meta Quest controller support.
+            </p>
+            <div class="timeline__tags">
+              <span>VR / XR</span><span>Meta Quest</span><span>Interaction Design</span><span>WebXR</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="timeline__item reveal">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__top">
+              <h3>Founder &amp; Developer — Personal Projects &amp; Web Apps</h3>
+              <span class="timeline__date">2024 — Present</span>
+            </div>
+            <p class="timeline__org">Independent</p>
+            <p>
+              Conceived, designed, and shipped a growing portfolio of web applications and
+              games — from arcade games to language-learning tools — handling everything from
+              UX and front-end engineering to deployment.
+            </p>
+            <div class="timeline__tags">
+              <span>JavaScript</span><span>Front-End</span><span>UI/UX</span><span>Vercel</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="timeline__item reveal">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__top">
+              <h3>Photographer</h3>
+              <span class="timeline__date">Ongoing</span>
+            </div>
+            <p class="timeline__org">Bareq Aljuboori Photography</p>
+            <p>
+              Portrait, personal, and general photography. I run an online portfolio and
+              store showcasing my visual work and prints.
+            </p>
+            <div class="timeline__tags">
+              <span>Portraits</span><span>Editing</span><span>Visual Storytelling</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="timeline__item reveal">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__top">
+              <h3>Writer &amp; Creator</h3>
+              <span class="timeline__date">Ongoing</span>
+            </div>
+            <p class="timeline__org">Personal Blog · YouTube</p>
+            <p>
+              Long-form essays, diaries, and short notes on learning, discipline, and growth.
+              I document my creative process and the lessons that come from trying new things.
+            </p>
+            <div class="timeline__tags">
+              <span>Writing</span><span>Video</span><span>Storytelling</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+
+
+
+
+    <!-- Education -->
+    <section class="section" id="education">
+      <div class="section__head reveal">
+        <span class="section__kicker">04 — Education</span>
+        <h2 class="section__title">Education</h2>
+      </div>
+      <div class="edu reveal">
+        <div class="edu__logo">USC</div>
+        <div class="edu__body">
+          <div class="timeline__top">
+            <h3>University of Southern California</h3>
+            <span class="timeline__date">Los Angeles, CA</span>
+          </div>
+          <p class="timeline__org">Psychology and Theatre <span class="edu__note">· dropped out</span></p>
+          <p>
+            Studied Psychology before transitioning into Theatre — a path that shaped how I
+            think about human behavior, performance, storytelling, and the craft of
+            connecting with an audience. That blend of the analytical and the creative
+            continues to define how I approach everything I build.
+          </p>
+          <div class="timeline__tags">
+            <span>Psychology</span><span>Theatre</span><span>Performance</span><span>Human Behavior</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <div class="section__head reveal">
+        <span class="section__kicker">05 — Toolkit</span>
+        <h2 class="section__title">Skills</h2>
+      </div>
+      <div class="skills reveal">
+        <div class="skills__col">
+          <h4>Development</h4>
+          <ul class="chips">
+            <li>AI (Expert)</li><li>Cursor</li><li>Claude</li><li>JavaScript</li><li>HTML &amp; CSS</li><li>Front-End</li>
+            <li>WebXR / VR</li><li>Game Dev</li><li>Vercel</li><li>Git</li>
+          </ul>
+        </div>
+        <div class="skills__col">
+          <h4>Creative</h4>
+          <ul class="chips">
+            <li>Photography</li><li>Photo Editing</li><li>Painting</li>
+            <li>Visual Design</li><li>Writing</li><li>Video / YouTube</li>
+          </ul>
+        </div>
+        <div class="skills__col">
+          <h4>Languages</h4>
+          <ul class="chips">
+            <li>English</li><li>العربية (Arabic)</li><li>Español (Spanish)</li>
+          </ul>
+        </div>
+        <div class="skills__col">
+          <h4>Discipline</h4>
+          <ul class="chips">
+            <li>Boxing</li><li>Martial Arts</li><li>Consistency</li><li>Deep Work</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section--contact" id="contact">
+      <div class="contact reveal">
+        <span class="section__kicker">06 — Contact</span>
+        <h2 class="contact__title">Let's build something.</h2>
+        <p class="contact__sub">
+          Whether it's a project, a collaboration, or just a good conversation about
+          learning and growth — I'd love to hear from you.
+        </p>
+        <a class="contact__email" href="mailto:aljubooribareq@gmail.com">aljubooribareq@gmail.com</a>
+        <div class="contact__links">
+          <a class="btn btn--primary" href="https://bareqblog.vercel.app/" target="_blank" rel="noopener">Read the blog ↗</a>
+          <a class="btn btn--ghost" href="https://neonponggame.vercel.app/" target="_blank" rel="noopener">Play My Neon Pong Game ↗</a>
+          <a class="btn btn--ghost" href="https://www.meta.com/experiences/vr-vision-tracking/1060963813776596/" target="_blank" rel="noopener">Try the VR vision app ↗</a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
-    <p>Designed &amp; built by <strong>Bareq Aljuboori</strong></p>
-    <p class="footer-sub">© <span id="year"></span> · All projects live and maintained</p>
+    <div class="footer__inner">
+      <span class="footer__name">Bareq Aljuboori</span>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="https://all-websites-link.vercel.app" target="_blank" rel="noopener">All Projects</a>
+        <a href="https://bareqblog.vercel.app/" target="_blank" rel="noopener">Blog</a>
+        <a href="https://bareqaljuboori.vercel.app/" target="_blank" rel="noopener">Photography</a>
+        <a href="https://www.meta.com/experiences/vr-vision-tracking/1060963813776596/" target="_blank" rel="noopener">VR App</a>
+        <a href="https://vision-training-zeta.vercel.app/" target="_blank" rel="noopener">Eye Tracking</a>
+        <a href="https://neonponggame.vercel.app/" target="_blank" rel="noopener">Neon Pong</a>
+        <a href="https://thearabiancobra.vercel.app/" target="_blank" rel="noopener">Snake</a>
+        <a href="https://spanish-flashcards-sigma.vercel.app/" target="_blank" rel="noopener">Flashcards</a>
+        <a href="https://to-do-list-planner.vercel.app/" target="_blank" rel="noopener">Planner</a>
+        <a href="https://consistency-streak-website.vercel.app/" target="_blank" rel="noopener">Streaks</a>
+        <a href="https://the-animal-almanac.vercel.app/" target="_blank" rel="noopener">Animal Almanac</a>
+      </nav>
+      <span class="footer__copy">© <span id="year"></span> Bareq Aljuboori</span>
+    </div>
   </footer>
 
-  <script src="script.js" defer></script>
+  <script src="script.js"></script>
 </body>
 </html>
